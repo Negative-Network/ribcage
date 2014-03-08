@@ -29,7 +29,8 @@ include ('ribcage-includes/functions.php');
 include ('ribcage-includes/log.php');
 include ('ribcage-includes/template.php');
 
-require_once dirname(__FILE__) . '/admin.php';
+
+require_once dirname(__FILE__) . '/artists.php';
 require_once dirname(__FILE__) . '/download.php';
 require_once dirname(__FILE__) . '/stream.php';
 require_once dirname(__FILE__) . '/player.php';

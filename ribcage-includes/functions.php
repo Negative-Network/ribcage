@@ -55,7 +55,7 @@ function ribcage_release_feeds(){
 function list_recent_releases_blurb ($amount = 0, $forthcoming = FALSE)
 {
 	global $wpdb;
-	
+	$return = array();
 	$now_date = gmdate('Y-m-d');
 	
 	if ($amount) {
@@ -99,6 +99,7 @@ function list_artists_blurb (){
 function list_artist_releases ($artist_id, $forthcoming = FALSE ) {
 	global $wpdb;
 	
+        $return = array();
 	if ($forthcoming == TRUE) {
 		$releases = $wpdb->get_results("SELECT release_id FROM $wpdb->ribcage_releases WHERE release_artist = $artist_id ORDER BY release_id DESC", ARRAY_A);
 	}
@@ -147,6 +148,8 @@ function get_product ($product_id) {
 function list_products ($amount = 0) {
 	global $wpdb;
 
+	$return = array();
+        
 	if ($amount) {
 		$products = $wpdb->get_results("SELECT product_id FROM $wpdb->ribcage_products WHERE product_id > 0 LIMIT $amount", ARRAY_A);
 	}
@@ -336,7 +339,7 @@ function get_artistname_by_id ($artist_id) {
         $query = "SELECT artist_name FROM $wpdb->ribcage_artists WHERE artist_id = $artist_id";
 
         if ($wpdb->query($query) == false or $wpdb->query($query) == 0) {
-            return new WP_Error('ribcage-artist-not-found', __("We can't find an artist with $artist_slug."));
+            return new WP_Error('ribcage-artist-not-found', __("Can't find artist with id $artist_id"));
         }
 
         $return = $wpdb->get_var($query);
@@ -687,4 +690,5 @@ function ribcage_404 () {
 function ribcage_cc_api_dropdown ($selected = false) {
 	
 }
+
 ?>

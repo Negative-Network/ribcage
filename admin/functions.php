@@ -139,7 +139,8 @@ function ribcage_artists_dropdown ($var_name = 'release_artist', $artist_id = nu
 	global $artists, $artist;
 
 	$artists = list_artists_blurb();
-	$artist = $artists [$current_artist];
+//	$artist = $artists [$artist_id];
+//	$artist = $artists [$current_artist];
 	?>
 	<select name="<?php echo $var_name; ?>" id="<?php echo $var_name; ?>">
 	<?php while (have_artists ()) : the_artist(); ?>

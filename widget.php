@@ -21,9 +21,11 @@ class ribcage_widgets {
 	 * @author Alex Andrews <alex@recordsonribs.com>
 	 * @return void
 	 */
-	function init () {
-		register_sidebar_widget('Forthcoming Releases', array('ribcage_widgets','forthcoming_releases'));
-		register_sidebar_widget('Recent Releases', array('ribcage_widgets','recent_releases'));
+	static function init () {
+		wp_register_sidebar_widget('Forthcoming Releases','forthcoming_releases' , 'ribcage_widgets');
+//		wp_register_sidebar_widget('Recent Releases', 'ribcage_widgets','recent_releases');
+//		wp_register_sidebar_widget('Forthcoming Releases', array('ribcage_widgets','forthcoming_releases'));
+//		wp_register_sidebar_widget('Recent Releases', array('ribcage_widgets','recent_releases'));
 		
 		//register_sidebar_widget_control('Recent Releases', array('ribcage_widgets', 'widget_ribcage_recent_control'));
 		//register_sidebar_widget_control('Forthcoming Releases', array('ribcage_widgets', 'widget_ribcage_recent_forthcoming'));
