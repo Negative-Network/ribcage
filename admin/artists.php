@@ -14,7 +14,9 @@
  * */
 function ribcage_manage_artists() {
 
-    global $action, $artists, $artist;
+    global $page, $action, $artists, $artist;
+    
+    if($page != 'artists') return;
 
     $artist_id = 0;
     $artist = null;
@@ -63,10 +65,8 @@ function ribcage_manage_artists() {
 
             if ($_POST)
             {
-//                print_r($_POST);
                 global $wpdb;
                 $wpdb->show_errors();
-                //slice off two variables at the end to prepare for implodes
                 array_pop($_POST); // submit button var
                 $sql = "UPDATE ".$wpdb->prefix."ribcage_artists SET ";
                 foreach ($_POST as $key => $value) $sql .= $key."='".$value."', ";

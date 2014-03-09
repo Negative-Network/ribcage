@@ -43,13 +43,16 @@ add_action('admin_menu', 'ribcage_admin_menu');
 
 global $page, $action;
 
+$page = 'artists';
+if (isset($_REQUEST['page'])) $page = $_REQUEST['page'];
+
 $action = 'default';
 if (isset($_REQUEST['action'])) $action = $_REQUEST['action'];
 
-
 require_once dirname(__FILE__).'/admin/functions.php';
+
 require_once dirname(__FILE__).'/admin/artists.php';
 require_once dirname(__FILE__).'/admin/releases.php';
-require_once dirname(__FILE__).'/admin/buy.php';
+require_once dirname(__FILE__).'/admin/products.php';
 require_once dirname(__FILE__).'/admin/orders.php';
 ?>

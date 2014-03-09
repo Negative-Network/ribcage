@@ -313,6 +313,17 @@ function get_reviews ($release_id){
 }
 
 /**
+ * Gets a track from the database by the track's track ID.
+ */
+function get_track ($track_id){
+	global $wpdb;
+	
+	$return = $wpdb->get_row("SELECT * FROM $wpdb->ribcage_tracks WHERE track_id = $track_id", ARRAY_A);
+	
+	return $return;
+}
+
+/**
  * Get a track by its slug.
  *
  * @author Alex Andrews <alex@recordsonribs.com>
@@ -469,6 +480,11 @@ function mb_get_release ($mbid)
 {
 	global $release, $artist;
 	
+        if($mbid == '') 
+        {
+            return new WP_Error('ribcage-no-mbid', __("Empty MBID, could not look up MusicBrainz"));
+        }
+        
 	$request_url = "http://musicbrainz.org/ws/1/release/$mbid?type=xml&inc=release-events+tracks+artist";
 	$xml = simplexml_load_file($request_url);
 	

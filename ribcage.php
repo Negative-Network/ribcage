@@ -431,6 +431,8 @@ function ribcage_flush_rules (){
 function ribcage_page_title ($title, $sep = '&raquo;', $seplocation = '') {
 	global $wp_query;
 	global $release, $artist, $product;
+        
+        $title_array = array();
 
         // We've got a 404 situation here.
         if (is_wp_error($artist) or is_wp_error($release) or is_wp_error($product)){
