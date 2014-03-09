@@ -3,7 +3,7 @@
     <h2>Artist</h2>
 
     <form  method="post" id="ribcage_artist-form" name="artist-form">
-    <!--<form action="<?php // echo str_replace('%7E', '~', $_SERVER['REQUEST_URI']);   ?>&ribcage_action=add" method="post" id="ribcage_edit_artist" name="edit_artist">-->
+    <!--<form action="<?php // echo str_replace('%7E', '~', $_SERVER['REQUEST_URI']);     ?>&ribcage_action=add" method="post" id="ribcage_edit_artist" name="edit_artist">-->
 
         <table class="form-table">   
             <tr valign="top">
@@ -16,19 +16,21 @@
                 <th scope="row">Sort Name</th> 
                 <td>
                     <input type="text" value="<?php artist_name_sort(); ?>" name="artist_name_sort" id="artist_name_sort" class="regular-text" />
-                    <span class="description">The name of the artist to be alphabetized. For example, 'Butterfly, The'.</span>
+                    <br/><span class="description">The name of the artist to be alphabetized. For example, 'Butterfly, The'.</span>
                 </td> 
             </tr>
             <tr valign="top">
                 <th scope="row">Artist Slug</th> 
                 <td>
-                    <input type="text" style="width:320px;" class="regular-text code" value="<?php artist_slug(); ?>" name="artist_slug" id="artist_slug" /><span class="description">The URL you want for the artist - for example <?php echo home_url(); ?>/artists/artist_slug</span>
+                    <input type="text" style="width:320px;" class="regular-text code" value="<?php artist_slug(); ?>" name="artist_slug" id="artist_slug" />
+                    <br/><span class="description">The URL you want for the artist - for example <?php echo home_url(); ?>/artists/artist_slug</span>
                 </td> 
             </tr>
             <tr valign="top">
                 <th scope="row">Signup Date</th> 
                 <td>
-                    <input type="text" style="width:100px;" class="regular-text code" value="<?php echo $artist['artist_signed']; ?>" name="artist_signed" id="artist_signed" maxlength="50" /><span class="description">The date the artist signed for your label</span>
+                    <input type="text" style="width:100px;" class="regular-text code" value="<?php echo $artist['artist_signed']; ?>" name="artist_signed" id="artist_signed" maxlength="50" />
+                    <br/><span class="description">The date the artist signed for your label</span>
                 </td> 
             </tr>
             <tr valign="top">
@@ -76,25 +78,41 @@
             <tr valign="top">
                 <th scope="row">Artist Picture 1</th> 
                 <td>
-                    <input type="text" style="width:320px;" class="regular-text code" value="<?php artist_picture_1(); ?>" name="artist_picture_1" id="artist_picture_1" maxlength="200" />
+                    <label for="upload_image">
+                        <input class="file_upload" id="artist_picture_1" type="text" size="36" name="artist_picture_1" value="<?php artist_picture_1(); ?>" /> 
+                        <input class="file_upload_button" class="button" type="button" value="Upload Image" />
+                        <br />Enter a URL or upload an image
+                    </label>
                 </td> 
             </tr>
             <tr valign="top">
                 <th scope="row">Artist Picture 2</th> 
                 <td>
-                    <input type="text" style="width:320px;" class="regular-text code" value="<?php artist_picture_2(); ?>" name="artist_picture_2" id="artist_picture_2" maxlength="200" />
+                    <label for="upload_image">
+                        <input class="file_upload" id="artist_picture_2" type="text" size="36" name="artist_picture_2" value="<?php artist_picture_2(); ?>" /> 
+                        <input class="file_upload_button" class="button" type="button" value="Upload Image" />
+                        <br />Enter a URL or upload an image
+                    </label>
                 </td> 
             </tr>
             <tr valign="top">
                 <th scope="row">Artist Picture 3</th> 
                 <td>
-                    <input type="text" style="width:320px;" class="regular-text code" value="<?php artist_picture_3(); ?>" name="artist_picture_3" id="artist_picture_3" maxlength="200" />
+                    <label for="upload_image">
+                        <input class="file_upload" id="artist_picture_3" type="text" size="36" name="artist_picture_3" value="<?php artist_picture_3(); ?>" /> 
+                        <input class="file_upload_button" class="button" type="button" value="Upload Image" />
+                        <br />Enter a URL or upload an image
+                    </label>
                 </td> 
             </tr>
             <tr valign="top">
                 <th scope="row">Artist Picture HQ Zipfile URL</th> 
                 <td>
-                    <input type="text" style="width:320px;" class="regular-text code" value="<?php if (isset($artist_picture_zip_val)) echo $artist_picture_zip_val; ?>" name="artist_picture_zip" id="artist_picture_zip" maxlength="200" />
+                    <label for="upload_image">
+                        <input class="file_upload" id="artist_picture_zip" type="text" size="36" name="artist_picture_zip" value="<?php echo $artist['artist_picture_zip']; ?>" /> 
+                        <input class="file_upload_button" class="button" type="button" value="Upload Image" />
+                        <br />Enter a URL or upload an image
+                    </label>
                 </td> 
             </tr>
         </table>

@@ -51,7 +51,7 @@ if (isset($_REQUEST['action'])) $action = $_REQUEST['action'];
 
 require_once dirname(__FILE__).'/admin/functions.php';
 
-require_once dirname(__FILE__).'/admin/artists.php';
+require_once dirname(__FILE__).'/admin/artists/index.php';
 require_once dirname(__FILE__).'/admin/releases.php';
 require_once dirname(__FILE__).'/admin/products.php';
 require_once dirname(__FILE__).'/admin/orders.php';

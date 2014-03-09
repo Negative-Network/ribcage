@@ -58,7 +58,7 @@ function ribcage_manage_artists() {
                 echo '<div id="message" class="updated fade"><p><strong>Artist created</strong></p></div>';
             }
 
-            include 'artist-form.php';
+            include 'form.php';
             break;
 
         case 'edit':
@@ -78,7 +78,7 @@ function ribcage_manage_artists() {
                 $artist = get_artist($artist_id);
             }
 
-            include 'artist-form.php';
+            include 'form.php';
             break;
 
 
@@ -100,7 +100,7 @@ function ribcage_manage_artists() {
             $nonce = wp_create_nonce('ribcage_manage');
             $artists = list_artists_blurb();
             $alt = 0;
-            include 'artists-list.php';
+            include 'list.php';
             break;
     }
 }
